@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
+images:
+  - name: ghcr.io/quymk1/a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+    newTag: latest
