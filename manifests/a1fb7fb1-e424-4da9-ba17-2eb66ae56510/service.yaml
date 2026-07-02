@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+  namespace: production
+  labels:
+    app: a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+  type: ClusterIP
