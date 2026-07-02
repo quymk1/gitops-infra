@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fb41cd3b-90dd-45c2-bda2-105ff4a628aa
+  namespace: 5ecb31a3-809d-4c2e-819c-c1be164a23f1
+  labels:
+    app: fb41cd3b-90dd-45c2-bda2-105ff4a628aa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fb41cd3b-90dd-45c2-bda2-105ff4a628aa
+  template:
+    metadata:
+      labels:
+        app: fb41cd3b-90dd-45c2-bda2-105ff4a628aa
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/quymk1/fb41cd3b-90dd-45c2-bda2-105ff4a628aa:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
