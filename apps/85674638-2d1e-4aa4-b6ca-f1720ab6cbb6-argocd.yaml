@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 85674638-2d1e-4aa4-b6ca-f1720ab6cbb6
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/quymk1/gitops-infra.git'
+    targetRevision: HEAD
+    path: manifests/85674638-2d1e-4aa4-b6ca-f1720ab6cbb6
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: 5ecb31a3-809d-4c2e-819c-c1be164a23f1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
