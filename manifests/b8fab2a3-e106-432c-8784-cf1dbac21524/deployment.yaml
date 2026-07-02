@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b8fab2a3-e106-432c-8784-cf1dbac21524
+  namespace: production
+  labels:
+    app: b8fab2a3-e106-432c-8784-cf1dbac21524
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: b8fab2a3-e106-432c-8784-cf1dbac21524
+  template:
+    metadata:
+      labels:
+        app: b8fab2a3-e106-432c-8784-cf1dbac21524
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/quymk1/b8fab2a3-e106-432c-8784-cf1dbac21524:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
