@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 90f8fe21-79ec-4e13-a5f2-adb3c61b1c2b
+  namespace: production
+  labels:
+    app: 90f8fe21-79ec-4e13-a5f2-adb3c61b1c2b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 90f8fe21-79ec-4e13-a5f2-adb3c61b1c2b
+  template:
+    metadata:
+      labels:
+        app: 90f8fe21-79ec-4e13-a5f2-adb3c61b1c2b
+    spec:
+      containers:
+        - name: app
+          image: lokiforce-dev/90f8fe21-79ec-4e13-a5f2-adb3c61b1c2b:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
