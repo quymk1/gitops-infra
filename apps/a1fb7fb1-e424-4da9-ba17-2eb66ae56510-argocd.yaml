@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: app=ghcr.io/quymk1/a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+    argocd-image-updater.argoproj.io/app.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git:kustomize
+    argocd-image-updater.argoproj.io/write-back-path: manifests/a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/quymk1/gitops-infra.git'
+    targetRevision: HEAD
+    path: manifests/a1fb7fb1-e424-4da9-ba17-2eb66ae56510
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: 5ecb31a3-809d-4c2e-819c-c1be164a23f1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
