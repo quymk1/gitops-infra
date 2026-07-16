@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-51934f4e-3027-4a30-b647-5cdf1c0db12a
+  namespace: 5ecb31a3-809d-4c2e-819c-c1be164a23f1
+  labels:
+    app: 51934f4e-3027-4a30-b647-5cdf1c0db12a
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: 51934f4e-3027-4a30-b647-5cdf1c0db12a
+  type: ClusterIP
