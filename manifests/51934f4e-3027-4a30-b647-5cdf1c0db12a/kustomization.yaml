@@ -5,4 +5,4 @@ resources:
   - service.yaml
 images:
   - name: ghcr.io/quymk1/51934f4e-3027-4a30-b647-5cdf1c0db12a
-    newTag: latest
+    newTag: f1ba6f16b680f247b3d47eb47da6ed2e8726d961
